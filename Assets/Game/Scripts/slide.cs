@@ -4,20 +4,14 @@ using UnityEngine;
 
 public class slide : MonoBehaviour
 {
-    float dir_x = 1f;
+    float dir_y = 1;
 
-    void Start()
+    void FixedUpdate()
     {
-        
-    }
-
-    // Update is called once per frame
-    void fixedUpdate()
-    {
-        GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, dir_x));
+        GetComponent<Rigidbody>().AddForce(new Vector3(0, dir_y, 0));
     }
     private void OnTriggerEnter(Collider other)
     {
-        dir_x += -1;
+        dir_y *= -1;
     }
 }
