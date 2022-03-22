@@ -16,7 +16,7 @@ public class mouseHover : MonoBehaviour
         var ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 1000f) && hit.rigidbody != null)
         {
-            hit.rigidbody.AddForce(new Vector3(0, 1f, 0), ForceMode.Impulse);
+            hit.rigidbody.AddForce(new Vector3(0, 2f, 0), ForceMode.Impulse);
         }
     }
 }
