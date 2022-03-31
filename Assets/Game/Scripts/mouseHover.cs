@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class mouseHover : MonoBehaviour
 {
+    public Rigidbody[] bullets;
     void Start()
     {
 
@@ -14,9 +15,12 @@ public class mouseHover : MonoBehaviour
         RaycastHit hit;
 
         var ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 1000f) && hit.rigidbody != null)
+        if (Physics.Raycast(ray, out hit, 1000f) && hit.transform.gameObject.tag == "trigger")
         {
-            hit.rigidbody.AddForce(new Vector3(0, 2f, 0), ForceMode.Impulse);
+            foreach(Rigidbody bullet in bullets)
+            {
+                bullet.AddForce(Vector3.forward*-100f);
+            }
         }
     }
 }
