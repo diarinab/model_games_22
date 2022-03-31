@@ -19,7 +19,7 @@ public class mouseHover : MonoBehaviour
         {
             foreach(Rigidbody bullet in bullets)
             {
-                bullet.AddForce(Vector3.forward*-100f);
+                bullet.AddForce(Vector3.forward*-50f);
             }
         }
     }
